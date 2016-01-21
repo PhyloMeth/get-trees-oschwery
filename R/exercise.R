@@ -10,14 +10,14 @@ GetFromTreeBase_exercise <- function() {
 	# Replace the "__________" with appropriate arguments
 	# When you run this, it'll take some time. But less time than sequencing
 	# and building the tree yourself.
-	trees <- search_treebase(input="__________", by="__________", 
-	branch_lengths="__________")
+	trees <- search_treebase(input="Formica", by="taxon", 
+	branch_lengths=TRUE)
 	
 	# Pull out just the biggest tree (for convenience)
 	biggest.tree <- trees[[which.max(sapply(trees, Ntip))]]
 	
 	# Print out a description of the biggest tree
-	print("__________")
+	print(biggest.tree)
 	
 	# Let's look at the TreeBASE page for this study
 	browseURL(paste(
@@ -41,14 +41,14 @@ GetTreeFromOpenTree_exercise <- function() {
 
 	# Replace the "__________" with appropriate arguments
 	
-	anolis.id <- tnrs_match_names("__________")$ott_id
+	anolis.id <- tnrs_match_names(names="Anolis")$ott_id
 	
 	# Now get Open Tree's current best estimate of the phylogeny for the group
 	# They call this the tree of life; we can get the subtree for just this group.
 	anolis.tree <- tol_subtree(ott_id=anolis.id)
 	
 	# Let's plot the tree:
-	plot.phylo("__________", type="fan", cex=0.2)
+	plot.phylo(anolis.tree, type="fan", cex=0.2)
 	
 	# It has a lot of polytomies, representing uncertainty. A maximally resolved
 	# tree (if rooted) will have one fewer internal nodes than terminal nodes:
